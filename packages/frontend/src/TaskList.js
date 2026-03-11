@@ -6,6 +6,24 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import EventIcon from '@mui/icons-material/Event';
 
+const PRIORITY_STYLES = {
+  P1: {
+    label: 'P1',
+    background: '#d32f2f',
+    color: '#ffffff',
+  },
+  P2: {
+    label: 'P2',
+    background: '#ef6c00',
+    color: '#ffffff',
+  },
+  P3: {
+    label: 'P3',
+    background: '#757575',
+    color: '#ffffff',
+  }
+};
+
 function TaskList({ onEdit }) {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -123,11 +141,14 @@ function TaskList({ onEdit }) {
             <Typography variant="body2">No tasks found.</Typography>
           </Box>
         )}
-        {tasks.map((task, index) => (
+        {tasks.map((task) => {
+          const priority = PRIORITY_STYLES[task.priority] ? task.priority : 'P3';
+          const priorityStyle = PRIORITY_STYLES[priority];
+          return (
           <ListItem 
             key={task.id} 
             sx={{ 
-              pr: 18,
+              pr: 24,
               py: 1,
               mb: 1,
               borderRadius: 2,
@@ -220,6 +241,18 @@ function TaskList({ onEdit }) {
                   }}
                 />
               )}
+              <Chip
+                label={priorityStyle.label}
+                size="small"
+                sx={{
+                  height: 20,
+                  minWidth: 36,
+                  fontSize: '0.7rem',
+                  fontWeight: 700,
+                  background: priorityStyle.background,
+                  color: priorityStyle.color,
+                }}
+              />
               <Box 
                 sx={{ 
                   display: 'flex', 
@@ -260,7 +293,8 @@ function TaskList({ onEdit }) {
               </Box>
             </Box>
           </ListItem>
-        ))}
+          );
+        })}
       </List>
     </Paper>
   );
