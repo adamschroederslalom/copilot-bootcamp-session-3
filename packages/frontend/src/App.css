@@ -1,3 +1,39 @@
+/* Priority color palette (matches UI sketch) */
+:root {
+  --priority-p1-bg: #d32f2f;
+  --priority-p1-text: #ffffff;
+  --priority-p2-bg: #ef6c00;
+  --priority-p2-text: #ffffff;
+  --priority-p3-bg: #757575;
+  --priority-p3-text: #ffffff;
+}
+
+/* Priority badge base */
+.priority-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.priority-badge--p1 {
+  background-color: var(--priority-p1-bg);
+  color: var(--priority-p1-text);
+}
+
+.priority-badge--p2 {
+  background-color: var(--priority-p2-bg);
+  color: var(--priority-p2-text);
+}
+
+.priority-badge--p3 {
+  background-color: var(--priority-p3-bg);
+  color: var(--priority-p3-text);
+}
+
 .App {
   text-align: center;
   max-width: 800px;
