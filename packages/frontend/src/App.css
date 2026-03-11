@@ -6,6 +6,8 @@
   --priority-p2-text: #ffffff;
   --priority-p3-bg: #757575;
   --priority-p3-text: #ffffff;
+  --priority-selected: #07F2E6;
+  --priority-unselected: #7A7A7A;
 }
 
 /* Priority badge base */
@@ -32,6 +34,22 @@
 .priority-badge--p3 {
   background-color: var(--priority-p3-bg);
   color: var(--priority-p3-text);
+}
+
+/* Priority selection state */
+.priority-badge--selected {
+  outline: 2px solid var(--priority-selected);
+  outline-offset: 1px;
+}
+
+.priority-option {
+  color: var(--priority-unselected);
+  cursor: pointer;
+}
+
+.priority-option--selected {
+  color: var(--priority-selected);
+  font-weight: 700;
 }
 
 .App {
